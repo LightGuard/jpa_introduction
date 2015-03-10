@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -17,32 +18,24 @@ import javax.persistence.Table;
 @Table(name = "member", schema = "public")
 public class Member implements java.io.Serializable {
 
-	private long id;
-	private Address address;
-	private Character gender;
-	private String firstName;
-	private String lastName;
-
-	public Member() {
-	}
-
-	public Member(long id, String firstName, String lastName) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
-	public Member(long id, Address address, Character gender, String firstName,
-			String lastName) {
-		this.id = id;
-		this.address = address;
-		this.gender = gender;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
 	@Id
 	@Column(name = "id", unique = true, nullable = false)
+	@SequenceGenerator(name = "member_id_seq")
+	private Long id;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@Column(name = "gender", length = 1)
+	private Character gender;
+
+	@Column(name = "first_name", nullable = false, length = 20)
+	private String firstName;
+
+	@Column(name = "last_name", nullable = false, length = 30)
+	private String lastName;
+
 	public long getId() {
 		return this.id;
 	}
@@ -51,8 +44,6 @@ public class Member implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "address_id")
 	public Address getAddress() {
 		return this.address;
 	}
@@ -61,7 +52,6 @@ public class Member implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@Column(name = "gender", length = 1)
 	public Character getGender() {
 		return this.gender;
 	}
@@ -70,7 +60,6 @@ public class Member implements java.io.Serializable {
 		this.gender = gender;
 	}
 
-	@Column(name = "first_name", nullable = false, length = 20)
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -79,7 +68,6 @@ public class Member implements java.io.Serializable {
 		this.firstName = firstName;
 	}
 
-	@Column(name = "last_name", nullable = false, length = 30)
 	public String getLastName() {
 		return this.lastName;
 	}
