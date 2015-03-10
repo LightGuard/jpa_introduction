@@ -1,0 +1,8 @@
+*.sw?
+build
+target
+*.iml
+*.idea
+*.classpath
+*.project
+*.settings
