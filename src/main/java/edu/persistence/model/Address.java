@@ -52,6 +52,38 @@ public class Address implements java.io.Serializable {
 		return this.id;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Address address = (Address) o;
+
+		if (!city.equals(address.city)) return false;
+		if (!country.equals(address.country)) return false;
+		if (!id.equals(address.id)) return false;
+		if (!line1.equals(address.line1)) return false;
+		if (line2 != null ? !line2.equals(address.line2) : address.line2 != null) return false;
+		if (line3 != null ? !line3.equals(address.line3) : address.line3 != null) return false;
+		if (!postcode.equals(address.postcode)) return false;
+		if (!province.equals(address.province)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id.hashCode();
+		result = 31 * result + line1.hashCode();
+		result = 31 * result + (line2 != null ? line2.hashCode() : 0);
+		result = 31 * result + (line3 != null ? line3.hashCode() : 0);
+		result = 31 * result + city.hashCode();
+		result = 31 * result + postcode.hashCode();
+		result = 31 * result + province.hashCode();
+		result = 31 * result + country.hashCode();
+		return result;
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}

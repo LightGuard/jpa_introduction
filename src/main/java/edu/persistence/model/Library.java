@@ -24,6 +24,28 @@ public class Library implements java.io.Serializable {
 	@Column(name = "libary_name", nullable = false, length = 50)
 	private String libaryName;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Library library = (Library) o;
+
+		if (address != null ? !address.equals(library.address) : library.address != null) return false;
+		if (id != null ? !id.equals(library.id) : library.id != null) return false;
+		if (!libaryName.equals(library.libaryName)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + (address != null ? address.hashCode() : 0);
+		result = 31 * result + libaryName.hashCode();
+		return result;
+	}
+
 	public long getId() {
 		return this.id;
 	}

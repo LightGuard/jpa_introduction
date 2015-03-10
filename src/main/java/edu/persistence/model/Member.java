@@ -36,6 +36,32 @@ public class Member implements java.io.Serializable {
 	@Column(name = "last_name", nullable = false, length = 30)
 	private String lastName;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Member member = (Member) o;
+
+		if (!address.equals(member.address)) return false;
+		if (!firstName.equals(member.firstName)) return false;
+		if (!gender.equals(member.gender)) return false;
+		if (id != null ? !id.equals(member.id) : member.id != null) return false;
+		if (!lastName.equals(member.lastName)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + address.hashCode();
+		result = 31 * result + gender.hashCode();
+		result = 31 * result + firstName.hashCode();
+		result = 31 * result + lastName.hashCode();
+		return result;
+	}
+
 	public long getId() {
 		return this.id;
 	}

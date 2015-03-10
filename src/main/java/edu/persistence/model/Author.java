@@ -50,4 +50,25 @@ public class Author implements java.io.Serializable {
 		this.lastName = lastName;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Author author = (Author) o;
+
+		if (!firstName.equals(author.firstName)) return false;
+		if (id != null ? !id.equals(author.id) : author.id != null) return false;
+		if (!lastName.equals(author.lastName)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + firstName.hashCode();
+		result = 31 * result + lastName.hashCode();
+		return result;
+	}
 }

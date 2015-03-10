@@ -32,6 +32,30 @@ public class Book implements java.io.Serializable {
 	@Column(name = "publication_date", nullable = false, length = 29)
 	private LocalDate publicationDate;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Book book = (Book) o;
+
+		if (id != null ? !id.equals(book.id) : book.id != null) return false;
+		if (!isbn.equals(book.isbn)) return false;
+		if (!publicationDate.equals(book.publicationDate)) return false;
+		if (!title.equals(book.title)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + isbn.hashCode();
+		result = 31 * result + title.hashCode();
+		result = 31 * result + publicationDate.hashCode();
+		return result;
+	}
+
 	public long getId() {
 		return this.id;
 	}
