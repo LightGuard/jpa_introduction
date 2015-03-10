@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -13,6 +14,7 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "book", schema = "public", uniqueConstraints = @UniqueConstraint(columnNames = "isbn"))
+@NamedQuery(name = "bookByIsbn", query = "SELECT b from Book b WHERE b.isbn = :isbn")
 public class Book implements java.io.Serializable {
 
 	@Id
