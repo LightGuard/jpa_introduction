@@ -25,7 +25,6 @@ public class BookDaoTest
       return ShrinkWrap.create(WebArchive.class, "book-dao-test.war")
             .addPackages(true, "edu.persistence")
             .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
-            .addAsWebInfResource("jpa-introduction-ds.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
    }
 

@@ -14,7 +14,7 @@ import edu.persistence.model.Book;
 @Stateless
 public class BookDao
 {
-   @PersistenceContext(unitName = "jpa-demo")
+   @PersistenceContext(unitName = "jpa-introduction")
    private EntityManager em;
 
    public void create(Book entity)
