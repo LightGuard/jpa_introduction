@@ -1,0 +1,1 @@
+A very simple schema and code for a JPA introduction presentation
