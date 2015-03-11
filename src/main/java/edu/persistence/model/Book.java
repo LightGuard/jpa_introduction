@@ -56,6 +56,12 @@ public class Book implements java.io.Serializable {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		return "Book{isbn='" + isbn + '\'' + ", title='" + title + '\'' +
+				", publicationDate=" + publicationDate + '}';
+	}
+
 	public long getId() {
 		return this.id;
 	}
