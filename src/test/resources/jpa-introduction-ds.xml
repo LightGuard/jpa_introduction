@@ -1,0 +1,24 @@
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+        <datasource jta="true" jndi-name="java:jboss/datasources/jpa-introduction-ds" pool-name="jpa-introduction-ds" enabled="true" use-ccm="true">
+                <connection-url>jdbc:postgresql://localhost:5432/docker</connection-url>
+                <driver-class>org.postgresql.Driver</driver-class>
+                <driver>postgresql-9.1-901-1.jdbc4.jar</driver>
+                <security>
+                        <user-name>docker</user-name>
+                        <password>postgres</password>
+                </security>
+                <validation>
+                        <validate-on-match>false</validate-on-match>
+                        <background-validation>false</background-validation>
+                </validation>
+                <timeout>
+                        <idle-timeout-minutes>0</idle-timeout-minutes>
+                        <query-timeout>0</query-timeout>
+                        <use-try-lock>0</use-try-lock>
+                        <allocation-retry>0</allocation-retry>
+                        <allocation-retry-wait-millis>0</allocation-retry-wait-millis>
+                </timeout>
+        </datasource>
+</datasources>

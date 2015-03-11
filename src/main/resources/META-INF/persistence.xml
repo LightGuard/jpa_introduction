@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- 2.0 -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.0"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+<!-- 2.1
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              version="2.1"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="jpa-demo" transaction-type="JTA">
-    <description>Persistence Unit</description>
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <!-- <jta-data-source>jpa-demo-ds</jta-data-source> -->
+             -->
+  <persistence-unit name="jpa-introduction" transaction-type="JTA">
+    <jta-data-source>jpa-introduction-ds</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!-- Hibernate -->
     <properties>
-      <property name="hibernate.connection.url" value="jdbc:postgres://localhost:5432/docker"/>
-      <property name="hibernate.connection.username" value="docker"/>
-      <property name="hibernate.connection.password" value="postgres"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
       <property name="hibernate.transaction.flush_before_completion" value="true"/>
