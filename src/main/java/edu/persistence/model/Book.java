@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -28,7 +26,6 @@ public class Book implements java.io.Serializable {
 	@Column(name = "title", nullable = false)
 	private String title;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "publication_date", nullable = false, length = 29)
 	private LocalDate publicationDate;
 

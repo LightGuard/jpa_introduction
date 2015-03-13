@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "author", schema = "public")
@@ -24,6 +25,7 @@ public class Author implements java.io.Serializable {
 	@Column(name = "last_name", nullable = false, length = 30)
 	private String lastName;
 
+    @Transient
 	private Set<Book> booksAuthored = new HashSet<Book>(0);
 
 	public long getId() {
