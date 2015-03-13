@@ -55,10 +55,10 @@ There is `@Basic` but it really isn't needed, `FetchType` may be useful in some 
 
 One of these cases where there are more than one way of doing things.
 
-=== `@Embeddable` / `@Embedded`
+=== `@Embeddable` / `@EmbeddedId`
 === `@IdClass` 
 
-`@IdClass` goes on the main entity, the key class doesn't need anything special, outside of converters.
+`@IdClass` goes on the main entity, the key class doesn't need anything special.
 
 === `@MapsId`
 
